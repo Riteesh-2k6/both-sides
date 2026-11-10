@@ -1,0 +1,1376 @@
+{
+ "name": "inr-stalled-india-post",
+ "dispute_id": "PP-R-IIX-10197974",
+ "mode": "desk",
+ "status": "done",
+ "snapshot": {
+  "dispute": {
+   "dispute_id": "PP-R-IIX-10197974",
+   "create_time": "2026-11-10T08:53:15.969Z",
+   "update_time": "2026-11-10T09:14:43.703Z",
+   "disputed_transactions": [
+    {
+     "buyer_transaction_id": "0GR32297M6189684G",
+     "seller_transaction_id": "7EK39033M22602452",
+     "create_time": "2026-11-05T11:22:40.000Z",
+     "transaction_status": "HELD",
+     "gross_amount": {
+      "currency_code": "USD",
+      "value": "38.00"
+     },
+     "custom": "np1|RP-SCARF-IND|-|seed|",
+     "buyer": {
+      "email": "s•••@•••",
+      "payer_id": "•••",
+      "name": "J."
+     },
+     "seller": {
+      "email": "s•••@•••",
+      "merchant_id": "•••",
+      "name": "T."
+     },
+     "items": [
+      {
+       "item_id": "RP-SCARF-IND",
+       "item_name": "Indigo dabu block-print scarf",
+       "item_quantity": "1",
+       "reason": "MERCHANDISE_OR_SERVICE_NOT_RECEIVED",
+       "item_type": "PRODUCT"
+      }
+     ],
+     "seller_protection_eligible": true,
+     "seller_protection_type": "EXPANDED_SELLER_PROTECTION"
+    }
+   ],
+   "reason": "MERCHANDISE_OR_SERVICE_NOT_RECEIVED",
+   "status": "UNDER_REVIEW",
+   "dispute_amount": {
+    "currency_code": "USD",
+    "value": "38.00"
+   },
+   "dispute_state": "UNDER_PAYPAL_REVIEW",
+   "fund_movements": [
+    {
+     "party": "SELLER",
+     "amount": {
+      "currency_code": "USD",
+      "value": "35.90"
+     },
+     "initiated_time": "2026-11-10T08:56:34.000Z",
+     "type": "DEBIT",
+     "reason": "HOLD_PLACED"
+    }
+   ],
+   "dispute_life_cycle_stage": "CHARGEBACK",
+   "dispute_channel": "INTERNAL",
+   "extensions": {
+    "merchant_contacted": false,
+    "buyer_contacted_time": "2026-11-10T08:53:15.174Z"
+   },
+   "evidences": [
+    {
+     "evidence_type": "CREATE",
+     "notes": "“I ordered on Nov 5 and the tracking hasn’t moved since it left India. I’m worried it’s lost. I’d like a full refund.”",
+     "source": "SUBMITTED_BY_BUYER",
+     "date": "2026-11-10T08:53:15.969Z",
+     "dispute_life_cycle_stage": "INQUIRY"
+    }
+   ],
+   "offer": {
+    "buyer_requested_amount": {
+     "currency_code": "USD",
+     "value": "38.00"
+    }
+   },
+   "refund_details": {
+    "allowed_refund_amount": {
+     "currency_code": "USD",
+     "value": "38.00"
+    }
+   },
+   "allowed_response_options": {
+    "accept_claim": {
+     "accept_claim_types": [
+      "REFUND"
+     ]
+    }
+   },
+   "links": [
+    {
+     "href": "https://api-m.sandbox.paypal.com/v1/customer/disputes/PP-R-IIX-10197974",
+     "rel": "self",
+     "method": "GET",
+     "encType": "application/json"
+    },
+    {
+     "href": "https://api-m.sandbox.paypal.com/v1/customer/disputes/PP-R-IIX-10197974/accept-claim",
+     "rel": "accept_claim",
+     "method": "POST",
+     "encType": "application/json"
+    },
+    {
+     "href": "https://api-m.sandbox.paypal.com/v1/customer/disputes/PP-R-IIX-10197974/adjudicate",
+     "rel": "adjudicate",
+     "method": "POST",
+     "encType": "application/json"
+    },
+    {
+     "href": "https://api-m.sandbox.paypal.com/v1/customer/disputes/PP-R-IIX-10197974/require-evidence",
+     "rel": "require_evidence",
+     "method": "POST",
+     "encType": "application/json"
+    },
+    {
+     "href": "https://api-m.sandbox.paypal.com/v1/customer/disputes/PP-R-IIX-10197974/provide-supporting-info",
+     "rel": "provide_supporting_info",
+     "method": "POST",
+     "encType": "application/json"
+    }
+   ]
+  },
+  "capture": {
+   "id": "7EK39033M22602452",
+   "amount": {
+    "currency_code": "USD",
+    "value": "38.00"
+   },
+   "final_capture": true,
+   "seller_protection": {
+    "status": "ELIGIBLE",
+    "dispute_categories": [
+     "ITEM_NOT_RECEIVED",
+     "UNAUTHORIZED_TRANSACTION"
+    ]
+   },
+   "custom_id": "np1|RP-SCARF-IND|-|seed|",
+   "status": "PENDING",
+   "status_details": {
+    "reason": "BUYER_COMPLAINT"
+   },
+   "supplementary_data": {
+    "related_ids": {
+     "order_id": "7EC29267WP186852A"
+    }
+   },
+   "payee": {
+    "email_address": "s•••@•••",
+    "merchant_id": "•••"
+   },
+   "create_time": "2026-11-05T11:22:40Z",
+   "update_time": "2026-11-10T08:56:33Z",
+   "links": [
+    {
+     "href": "https://api.sandbox.paypal.com/v2/payments/captures/7EK39033M22602452",
+     "rel": "self",
+     "method": "GET"
+    },
+    {
+     "href": "https://api.sandbox.paypal.com/v2/payments/captures/7EK39033M22602452/refund",
+     "rel": "refund",
+     "method": "POST"
+    },
+    {
+     "href": "https://api.sandbox.paypal.com/v2/checkout/orders/7EC29267WP186852A",
+     "rel": "up",
+     "method": "GET"
+    }
+   ]
+  },
+  "order": {
+   "id": "7EC29267WP186852A",
+   "intent": "CAPTURE",
+   "status": "COMPLETED",
+   "payment_source": {
+    "paypal": {
+     "email_address": "s•••@•••",
+     "account_id": "•••",
+     "account_status": "VERIFIED",
+     "name": {
+      "given_name": "J.",
+      "surname": "D."
+     },
+     "address": {
+      "country_code": "US"
+     }
+    }
+   },
+   "purchase_units": [
+    {
+     "reference_id": "default",
+     "amount": {
+      "currency_code": "USD",
+      "value": "38.00",
+      "breakdown": {
+       "item_total": {
+        "currency_code": "USD",
+        "value": "38.00"
+       },
+       "shipping": {
+        "currency_code": "USD",
+        "value": "0.00"
+       },
+       "handling": {
+        "currency_code": "USD",
+        "value": "0.00"
+       },
+       "insurance": {
+        "currency_code": "USD",
+        "value": "0.00"
+       },
+       "shipping_discount": {
+        "currency_code": "USD",
+        "value": "0.00"
+       },
+       "discount": {
+        "currency_code": "USD",
+        "value": "0.00"
+       }
+      }
+     },
+     "payee": {
+      "email_address": "s•••@•••",
+      "merchant_id": "•••"
+     },
+     "description": "Indigo dabu block-print scarf",
+     "custom_id": "np1|RP-SCARF-IND|-|seed|",
+     "items": [
+      {
+       "name": "Indigo dabu block-print scarf",
+       "unit_amount": {
+        "currency_code": "USD",
+        "value": "38.00"
+       },
+       "tax": {
+        "currency_code": "USD",
+        "value": "0.00"
+       },
+       "quantity": "1",
+       "sku": "RP-SCARF-IND",
+       "category": "PHYSICAL_GOODS"
+      }
+     ],
+     "shipping": {
+      "name": {
+       "full_name": "S."
+      },
+      "address": {
+       "address_line_1": "•••",
+       "admin_area_2": "Austin",
+       "admin_area_1": "TX",
+       "postal_code": "73301",
+       "country_code": "US"
+      },
+      "trackers": [
+       {
+        "id": "7EK39033M22602452-EE264875961IN",
+        "status": "SHIPPED",
+        "links": [
+         {
+          "href": "https://api.sandbox.paypal.com/v2/checkout/orders/7EC29267WP186852A",
+          "rel": "up",
+          "method": "GET"
+         },
+         {
+          "href": "https://api.sandbox.paypal.com/v2/checkout/orders/7EC29267WP186852A/trackers/7EK39033M22602452-EE264875961IN",
+          "rel": "update",
+          "method": "PATCH"
+         }
+        ],
+        "notify_payer": false
+       }
+      ]
+     },
+     "payments": {
+      "captures": [
+       {
+        "id": "7EK39033M22602452",
+        "status": "PENDING",
+        "status_details": {
+         "reason": "BUYER_COMPLAINT"
+        },
+        "amount": {
+         "currency_code": "USD",
+         "value": "38.00"
+        },
+        "final_capture": true,
+        "seller_protection": {
+         "status": "ELIGIBLE",
+         "dispute_categories": [
+          "ITEM_NOT_RECEIVED",
+          "UNAUTHORIZED_TRANSACTION"
+         ]
+        },
+        "custom_id": "np1|RP-SCARF-IND|-|seed|",
+        "links": [
+         {
+          "href": "https://api.sandbox.paypal.com/v2/payments/captures/7EK39033M22602452",
+          "rel": "self",
+          "method": "GET"
+         },
+         {
+          "href": "https://api.sandbox.paypal.com/v2/payments/captures/7EK39033M22602452/refund",
+          "rel": "refund",
+          "method": "POST"
+         },
+         {
+          "href": "https://api.sandbox.paypal.com/v2/checkout/orders/7EC29267WP186852A",
+          "rel": "up",
+          "method": "GET"
+         }
+        ],
+        "create_time": "2026-11-05T11:22:40Z",
+        "update_time": "2026-11-10T08:56:33Z"
+       }
+      ],
+      "refunds": [
+       {
+        "id": "99T42429NA602752T",
+        "amount": {
+         "currency_code": "USD",
+         "value": "35.90"
+        },
+        "seller_payable_breakdown": {
+         "gross_amount": {
+          "currency_code": "USD",
+          "value": "35.90"
+         },
+         "paypal_fee": {
+          "currency_code": "USD",
+          "value": "0.00"
+         },
+         "platform_fees": [
+          {
+           "amount": {
+            "currency_code": "USD",
+            "value": "0.00"
+           }
+          }
+         ],
+         "net_amount": {
+          "currency_code": "USD",
+          "value": "35.90"
+         },
+         "total_refunded_amount": {
+          "currency_code": "USD",
+          "value": "0.00"
+         }
+        },
+        "custom_id": "np1|RP-SCARF-IND|-|seed|",
+        "status": "PENDING",
+        "links": [
+         {
+          "href": "https://api.sandbox.paypal.com/v2/payments/refunds/99T42429NA602752T",
+          "rel": "self",
+          "method": "GET"
+         },
+         {
+          "href": "https://api.sandbox.paypal.com/v2/payments/captures/7EK39033M22602452",
+          "rel": "up",
+          "method": "GET"
+         }
+        ],
+        "create_time": "2026-11-10T00:56:33-08:00",
+        "update_time": "2026-11-10T00:56:33-08:00"
+       }
+      ]
+     }
+    }
+   ],
+   "payer": {
+    "name": {
+     "given_name": "J.",
+     "surname": "D."
+    },
+    "email_address": "s•••@•••",
+    "payer_id": "•••",
+    "address": {
+     "country_code": "US"
+    }
+   },
+   "create_time": "2026-11-05T11:22:39Z",
+   "update_time": "2026-11-05T11:22:40Z",
+   "links": [
+    {
+     "href": "https://api.sandbox.paypal.com/v2/checkout/orders/7EC29267WP186852A",
+     "rel": "self",
+     "method": "GET"
+    }
+   ]
+  },
+  "refunds": [],
+  "shop": {
+   "product": {
+    "sku": "RP-SCARF-IND",
+    "name": "Indigo dabu block-print scarf",
+    "category": "scarf",
+    "kind": "physical",
+    "color": "indigo",
+    "price_cents": 3800,
+    "sizes": "[]",
+    "description": "Soft cotton scarf block-printed by hand with the dabu mud-resist technique. Natural dye: shade varies by batch and can look darker than in photos."
+   },
+   "order": {
+    "id": "7EC29267WP186852A",
+    "status": "captured",
+    "capture_id": "7EK39033M22602452",
+    "sku": "RP-SCARF-IND",
+    "size": null,
+    "amount_cents": 3800,
+    "via": "seed",
+    "mandate_id": null,
+    "dispute_id": "PP-R-IIX-10197974",
+    "created_at": "2026-11-05T11:20:00Z"
+   },
+   "shipment": {
+    "order_id": "7EC29267WP186852A",
+    "carrier": "INDIA_POST",
+    "tracking": "EE264875961IN",
+    "shipped_at": "2026-11-05T11:25:00Z",
+    "shipped_to_key": "336167456f0cf4f9",
+    "delivered_at": null,
+    "signature": 0,
+    "size_shipped": null,
+    "return_delivered_at": null
+   },
+   "refunds": [],
+   "mandate": null,
+   "notes": []
+  },
+  "derived": {
+   "address_match": "yes"
+  },
+  "buyer_text": "“I ordered on Nov 5 and the tracking hasn’t moved since it left India. I’m worried it’s lost. I’d like a full refund.”",
+  "receipts": {},
+  "errors": [],
+  "meta": {
+   "source": "live",
+   "now": "2026-11-10T09:27:48Z",
+   "owned": true
+  }
+ },
+ "steps": [
+  {
+   "step": "facts",
+   "status": "ok",
+   "ms": 0,
+   "data": {
+    "count": 33,
+    "errors": []
+   },
+   "llm": null
+  },
+  {
+   "step": "precheck",
+   "status": "ok",
+   "ms": 8,
+   "data": {
+    "coverage": "unknown",
+    "coverage_rule": "Tracking shows no delivery yet.",
+    "hours_left": null,
+    "legal_actions": [
+     "accept_claim",
+     "provide_supporting_info"
+    ],
+    "advisory": false,
+    "advisory_text": null,
+    "offer_types": [],
+    "accept_types": [
+     "REFUND"
+    ],
+    "sandbox_calls": [
+     "adjudicate",
+     "require_evidence"
+    ],
+    "warnings": []
+   },
+   "llm": null
+  },
+  {
+   "step": "quarantine",
+   "status": "ok",
+   "ms": 2045,
+   "data": {
+    "stated_reason": "Item not received",
+    "requested_outcome": "full_refund",
+    "alleged": [
+     {
+      "id": "A1",
+      "text": "I ordered the item on Nov 5."
+     },
+     {
+      "id": "A2",
+      "text": "The tracking shows the package left India."
+     },
+     {
+      "id": "A3",
+      "text": "The tracking has not moved since it left India."
+     },
+     {
+      "id": "A4",
+      "text": "I am worried the package is lost."
+     },
+     {
+      "id": "A5",
+      "text": "I would like a full refund."
+     }
+    ],
+    "injection_suspected": false
+   },
+   "llm": {
+    "provider": "api.groq.com",
+    "model": "openai/gpt-oss-120b",
+    "ms": 2045,
+    "prompt_tokens": 416,
+    "completion_tokens": 625,
+    "attempts": 1
+   }
+  },
+  {
+   "step": "buyer_r1",
+   "status": "ok",
+   "ms": 5722,
+   "data": {
+    "assessments": [
+     {
+      "alleged_id": "A1",
+      "status": "supported",
+      "evidence_ids": [
+       "pp.capture.time"
+      ],
+      "note": "Capture timestamp shows 2026-11-05, confirming order date."
+     },
+     {
+      "alleged_id": "A2",
+      "status": "supported",
+      "evidence_ids": [
+       "pp.order.tracking",
+       "shop.shipment.shipped_at"
+      ],
+      "note": "Tracking status is SHIPPED and shipment timestamp is 2026-11-05, indicating it left India."
+     },
+     {
+      "alleged_id": "A3",
+      "status": "unverified",
+      "evidence_ids": [
+       "shop.shipment.delivered_at"
+      ],
+      "note": "No fact about subsequent tracking movement."
+     },
+     {
+      "alleged_id": "A4",
+      "status": "unverified",
+      "evidence_ids": [],
+      "note": "Buyer’s worry is a sentiment, not reflected in facts."
+     },
+     {
+      "alleged_id": "A5",
+      "status": "supported",
+      "evidence_ids": [
+       "pp.dispute.buyer_requested",
+       "pp.dispute.amount"
+      ],
+      "note": "Buyer explicitly requested the full disputed amount."
+     }
+    ],
+    "why_filed": [
+     {
+      "id": "W1",
+      "text": "The item has not been delivered and tracking shows no progress, leading the buyer to fear loss.",
+      "kind": "inference",
+      "evidence_ids": [
+       "shop.shipment.delivered_at",
+       "shop.shipment.shipped_at"
+      ],
+      "responds_to": []
+     },
+     {
+      "id": "W2",
+      "text": "The order was placed on Nov 5 and the capture is still pending, while the shipping policy expects delivery within 7–21 days, so the buyer seeks resolution.",
+      "kind": "inference",
+      "evidence_ids": [
+       "pp.capture.time",
+       "shop.policy.shipping"
+      ],
+      "responds_to": []
+     },
+     {
+      "id": "W3",
+      "text": "The buyer’s address matches the transaction address but no receipt has been received, matching the dispute reason of merchandise not received.",
+      "kind": "inference",
+      "evidence_ids": [
+       "check.address_match",
+       "pp.dispute.reason"
+      ],
+      "responds_to": []
+     }
+    ],
+    "claims": [
+     {
+      "id": "B1.1",
+      "text": "Buyer should receive a full refund of 38.00 USD.",
+      "kind": "inference",
+      "evidence_ids": [
+       "pp.dispute.amount",
+       "pp.dispute.buyer_requested",
+       "pp.dispute.reason"
+      ],
+      "responds_to": []
+     },
+     {
+      "id": "B1.2",
+      "text": "Seller should be required to provide proof of delivery or shipping documentation.",
+      "kind": "inference",
+      "evidence_ids": [
+       "pp.order.tracking",
+       "shop.shipment.carrier",
+       "shop.policy.shipping"
+      ],
+      "responds_to": []
+     }
+    ],
+    "proposal": {
+     "action": "accept_claim",
+     "type": "REFUND",
+     "amount": 38.0,
+     "why": "The buyer has not received the item, tracking shows no delivery, and the dispute reason is MERCHANDISE_OR_SERVICE_NOT_RECEIVED; a full refund is the fair outcome."
+    },
+    "deciding_fact": "shop.shipment.delivered_at"
+   },
+   "llm": {
+    "provider": "api.groq.com",
+    "model": "openai/gpt-oss-120b",
+    "ms": 5722,
+    "prompt_tokens": 1590,
+    "completion_tokens": 1653,
+    "attempts": 1
+   }
+  },
+  {
+   "step": "merchant_r1",
+   "status": "ok",
+   "ms": 4067,
+   "data": {
+    "claims": [
+     {
+      "id": "M1.1",
+      "text": "The item was shipped on 2026-11-05 via India Post with tracking EE264875961IN, as shown in the shipping records.",
+      "kind": "inference",
+      "evidence_ids": [
+       "shop.shipment.shipped_at",
+       "shop.shipment.carrier",
+       "shop.shipment.tracking",
+       "pp.order.tracking"
+      ],
+      "responds_to": [
+       "W1"
+      ]
+     },
+     {
+      "id": "M1.2",
+      "text": "The capture was created on 2026-11-05 and the shipping policy allows 7–21 days for international delivery, so the package is still within the expected timeframe.",
+      "kind": "inference",
+      "evidence_ids": [
+       "pp.capture.time",
+       "shop.policy.shipping"
+      ],
+      "responds_to": [
+       "W2"
+      ]
+     },
+     {
+      "id": "M1.3",
+      "text": "The shipment was sent to the buyer’s verified transaction address, meeting seller‑protection address‑match criteria.",
+      "kind": "inference",
+      "evidence_ids": [
+       "check.address_match",
+       "pp.dispute.reason"
+      ],
+      "responds_to": [
+       "W3"
+      ]
+     },
+     {
+      "id": "M1.4",
+      "text": "Seller protection is eligible for this transaction and no refund has been issued yet; therefore a full refund is not required.",
+      "kind": "inference",
+      "evidence_ids": [
+       "pp.dispute.protection",
+       "pp.dispute.amount",
+       "check.refunded_total"
+      ],
+      "responds_to": [
+       "B1.1"
+      ]
+     },
+     {
+      "id": "M1.5",
+      "text": "Proof of shipment (tracking number, carrier, and ship date) has been provided, satisfying the requirement for delivery documentation.",
+      "kind": "inference",
+      "evidence_ids": [
+       "pp.order.tracking",
+       "shop.shipment.carrier",
+       "shop.shipment.shipped_at"
+      ],
+      "responds_to": [
+       "B1.2"
+      ]
+     }
+    ],
+    "proposal": {
+     "action": "provide_supporting_info",
+     "type": null,
+     "amount": null,
+     "why": "We are submitting the shipping documentation (tracking number, carrier, ship date) and confirming the address match, which satisfy expanded seller protection; the claim should therefore be denied."
+    },
+    "deciding_fact": "shop.shipment.delivered_at"
+   },
+   "llm": {
+    "provider": "api.groq.com",
+    "model": "openai/gpt-oss-120b",
+    "ms": 4067,
+    "prompt_tokens": 1604,
+    "completion_tokens": 1552,
+    "attempts": 1
+   }
+  },
+  {
+   "step": "verify_r1",
+   "status": "ok",
+   "ms": 10,
+   "data": {
+    "kept": [
+     "W1",
+     "W2",
+     "W3",
+     "B1.1",
+     "B1.2",
+     "M1.1",
+     "M1.2",
+     "M1.3",
+     "M1.4",
+     "M1.5"
+    ],
+    "dropped": []
+   },
+   "llm": null
+  },
+  {
+   "step": "buyer_r2",
+   "status": "ok",
+   "ms": 14922,
+   "data": {
+    "assessments": [],
+    "why_filed": [],
+    "claims": [
+     {
+      "id": "B2.1",
+      "text": "Order was placed on 2026-11-05 as shown by capture record.",
+      "kind": "fact",
+      "evidence_ids": [
+       "pp.capture.time"
+      ],
+      "responds_to": []
+     },
+     {
+      "id": "B2.2",
+      "text": "Tracking indicates shipment was dispatched from India on 2026-11-05.",
+      "kind": "fact",
+      "evidence_ids": [
+       "shop.shipment.shipped_at",
+       "shop.shipment.carrier"
+      ],
+      "responds_to": []
+     },
+     {
+      "id": "B2.3",
+      "text": "Tracking has not shown any movement since shipment left India.",
+      "kind": "fact",
+      "evidence_ids": [
+       "shop.shipment.shipped_at",
+       "shop.shipment.delivered_at"
+      ],
+      "responds_to": []
+     },
+     {
+      "id": "B2.4",
+      "text": "Package may be delayed but is not yet confirmed lost; shipping policy allows up to 21 days.",
+      "kind": "inference",
+      "evidence_ids": [
+       "shop.policy.shipping"
+      ],
+      "responds_to": []
+     },
+     {
+      "id": "B2.5",
+      "text": "Buyer requests a full refund of 38.00 USD.",
+      "kind": "fact",
+      "evidence_ids": [
+       "pp.dispute.amount"
+      ],
+      "responds_to": []
+     }
+    ],
+    "proposal": {
+     "action": "accept_claim",
+     "type": "REFUND",
+     "amount": 38.0,
+     "why": "Item not received; tracking shows no delivery and the shipping window has passed without receipt, so a full refund is appropriate."
+    },
+    "deciding_fact": "[shop.shipment.delivered_at]"
+   },
+   "llm": {
+    "provider": "api.groq.com",
+    "model": "openai/gpt-oss-120b",
+    "ms": 14922,
+    "prompt_tokens": 1958,
+    "completion_tokens": 1918,
+    "attempts": 2
+   }
+  },
+  {
+   "step": "merchant_r2",
+   "status": "ok",
+   "ms": 31094,
+   "data": {
+    "claims": [
+     {
+      "id": "M2.1",
+      "text": "While the item has not yet been delivered, the shipment is within the allowed 7–21 day delivery window per our shipping policy, and tracking shows it was dispatched; we will provide the tracking details as evidence.",
+      "kind": "inference",
+      "evidence_ids": [
+       "shop.policy.shipping",
+       "shop.shipment.shipped_at",
+       "pp.order.tracking"
+      ],
+      "responds_to": [
+       "W1"
+      ]
+     },
+     {
+      "id": "M2.2",
+      "text": "The capture is pending but the order was shipped on 2026-11-05 and remains within the expected delivery window; no breach has occurred.",
+      "kind": "inference",
+      "evidence_ids": [
+       "pp.capture.time",
+       "shop.shipment.shipped_at",
+       "shop.policy.shipping"
+      ],
+      "responds_to": [
+       "W2"
+      ]
+     },
+     {
+      "id": "M2.3",
+      "text": "Address match is confirmed, but delivery is still within the promised timeframe; we request additional time before refund.",
+      "kind": "inference",
+      "evidence_ids": [
+       "check.address_match",
+       "shop.policy.shipping"
+      ],
+      "responds_to": [
+       "W3"
+      ]
+     },
+     {
+      "id": "M2.4",
+      "text": "A full refund is not warranted at this stage because the shipment is in transit within the agreed delivery window.",
+      "kind": "inference",
+      "evidence_ids": [
+       "shop.policy.shipping",
+       "shop.shipment.shipped_at"
+      ],
+      "responds_to": [
+       "B1.1"
+      ]
+     },
+     {
+      "id": "M2.5",
+      "text": "We will provide the shipping tracking information as proof of shipment.",
+      "kind": "fact",
+      "evidence_ids": [
+       "pp.order.tracking",
+       "shop.shipment.carrier",
+       "shop.shipment.shipped_at"
+      ],
+      "responds_to": [
+       "B1.2"
+      ]
+     },
+     {
+      "id": "M2.6",
+      "text": "The shipment is within the 7–21 day window; therefore no loss is established.",
+      "kind": "inference",
+      "evidence_ids": [
+       "shop.policy.shipping",
+       "shop.shipment.shipped_at"
+      ],
+      "responds_to": [
+       "B2.4"
+      ]
+     }
+    ],
+    "proposal": {
+     "action": "provide_supporting_info",
+     "type": null,
+     "amount": null,
+     "why": "We will submit the tracking details and shipping policy to demonstrate the item is in transit within the promised timeframe."
+    },
+    "deciding_fact": "shop.policy.shipping"
+   },
+   "llm": {
+    "provider": "api.groq.com",
+    "model": "openai/gpt-oss-120b",
+    "ms": 31094,
+    "prompt_tokens": 1764,
+    "completion_tokens": 2100,
+    "attempts": 3
+   }
+  },
+  {
+   "step": "verify_r2",
+   "status": "ok",
+   "ms": 10,
+   "data": {
+    "kept": [
+     "B2.1",
+     "B2.2",
+     "B2.3",
+     "B2.4",
+     "B2.5",
+     "M2.1",
+     "M2.2",
+     "M2.3",
+     "M2.4",
+     "M2.5",
+     "M2.6"
+    ],
+    "dropped": []
+   },
+   "llm": null
+  },
+  {
+   "step": "judge_a",
+   "status": "ok",
+   "ms": 26924,
+   "data": {
+    "verdict": {
+     "action": "provide_supporting_info",
+     "type": null,
+     "amount": null,
+     "evidence": [],
+     "message": [
+      {
+       "text": "Hello, we have reviewed the dispute (pp.dispute.id).",
+       "fact_ids": [
+        "pp.dispute.id"
+       ],
+       "courtesy": true
+      },
+      {
+       "text": "The item was shipped on 2026-11-05 via India Post with tracking EE264875961IN (shop.shipment.shipped_at, shop.shipment.carrier, pp.order.tracking).",
+       "fact_ids": [
+        "shop.shipment.shipped_at",
+        "shop.shipment.carrier",
+        "pp.order.tracking"
+       ],
+       "courtesy": false
+      },
+      {
+       "text": "Our shipping policy allows 7–21 days for international delivery, and only five days have passed, so the shipment is still within the expected timeframe (shop.policy.shipping, pp.capture.time, shop.shipment.shipped_at).",
+       "fact_ids": [
+        "shop.policy.shipping",
+        "pp.capture.time",
+        "shop.shipment.shipped_at"
+       ],
+       "courtesy": false
+      },
+      {
+       "text": "We are providing the tracking information as proof of shipment (pp.order.tracking, shop.shipment.carrier, shop.shipment.shipped_at).",
+       "fact_ids": [
+        "pp.order.tracking",
+        "shop.shipment.carrier",
+        "shop.shipment.shipped_at"
+       ],
+       "courtesy": false
+      }
+     ],
+     "rationale": [
+      {
+       "id": "R1",
+       "text": "Shipment was dispatched on 2026-11-05 via India Post with tracking EE264875961IN, satisfying delivery documentation.",
+       "kind": "inference",
+       "evidence_ids": [
+        "shop.shipment.shipped_at",
+        "shop.shipment.carrier",
+        "pp.order.tracking"
+       ],
+       "responds_to": [
+        "B1.2"
+       ]
+      },
+      {
+       "id": "R2",
+       "text": "Delivery window is 7–21 days and only five days have elapsed, so no breach has occurred.",
+       "kind": "inference",
+       "evidence_ids": [
+        "shop.policy.shipping",
+        "pp.capture.time",
+        "shop.shipment.shipped_at"
+       ],
+       "responds_to": [
+        "B1.1"
+       ]
+      }
+     ],
+     "fault": null,
+     "needs_fact": null
+    },
+    "validation": {
+     "ok": true,
+     "errors": [],
+     "warnings": [],
+     "dropped_sentences": [],
+     "message_text": "Hello, we have reviewed the dispute (pp.dispute.id). The item was shipped on 2026-11-05 via India Post with tracking EE264875961IN (shop.shipment.shipped_at, shop.shipment.carrier, pp.order.tracking). Our shipping policy allows 7–21 days for international delivery, and only five days have passed, so the shipment is still within the expected timeframe (shop.policy.shipping, pp.capture.time, shop.shipment.shipped_at). We are providing the tracking information as proof of shipment (pp.order.tracking, shop.shipment.carrier, shop.shipment.shipped_at).",
+     "dropped_rationale": [],
+     "kept_sentences": [
+      {
+       "text": "Hello, we have reviewed the dispute (pp.dispute.id).",
+       "fact_ids": [
+        "pp.dispute.id"
+       ],
+       "courtesy": false
+      },
+      {
+       "text": "The item was shipped on 2026-11-05 via India Post with tracking EE264875961IN (shop.shipment.shipped_at, shop.shipment.carrier, pp.order.tracking).",
+       "fact_ids": [
+        "shop.shipment.shipped_at",
+        "shop.shipment.carrier",
+        "pp.order.tracking"
+       ],
+       "courtesy": false
+      },
+      {
+       "text": "Our shipping policy allows 7–21 days for international delivery, and only five days have passed, so the shipment is still within the expected timeframe (shop.policy.shipping, pp.capture.time, shop.shipment.shipped_at).",
+       "fact_ids": [
+        "shop.policy.shipping",
+        "pp.capture.time",
+        "shop.shipment.shipped_at"
+       ],
+       "courtesy": false
+      },
+      {
+       "text": "We are providing the tracking information as proof of shipment (pp.order.tracking, shop.shipment.carrier, shop.shipment.shipped_at).",
+       "fact_ids": [
+        "pp.order.tracking",
+        "shop.shipment.carrier",
+        "shop.shipment.shipped_at"
+       ],
+       "courtesy": false
+      }
+     ]
+    }
+   },
+   "llm": {
+    "provider": "api.groq.com",
+    "model": "openai/gpt-oss-120b",
+    "ms": 26924,
+    "prompt_tokens": 2658,
+    "completion_tokens": 1423,
+    "attempts": 3
+   }
+  },
+  {
+   "step": "judge_b",
+   "status": "ok",
+   "ms": 29631,
+   "data": {
+    "verdict": {
+     "action": "provide_supporting_info",
+     "type": null,
+     "amount": null,
+     "evidence": [],
+     "message": [
+      {
+       "text": "Hello, thank you for your patience.",
+       "fact_ids": [],
+       "courtesy": true
+      },
+      {
+       "text": "The item was shipped on 2026-11-05 via India Post (tracking EE264875961IN) and our policy allows 7–21 days for international delivery, so it is still within the expected timeframe.",
+       "fact_ids": [
+        "shop.shipment.shipped_at",
+        "shop.shipment.carrier",
+        "shop.shipment.tracking",
+        "shop.policy.shipping"
+       ],
+       "courtesy": false
+      },
+      {
+       "text": "We will continue to monitor the shipment and can provide the tracking details as proof of shipment.",
+       "fact_ids": [
+        "pp.order.tracking",
+        "shop.shipment.carrier",
+        "shop.shipment.shipped_at"
+       ],
+       "courtesy": false
+      },
+      {
+       "text": "Given the delivery window has not yet elapsed, we kindly ask for additional time before a refund is processed.",
+       "fact_ids": [
+        "shop.policy.shipping",
+        "shop.shipment.shipped_at"
+       ],
+       "courtesy": false
+      }
+     ],
+     "rationale": [
+      {
+       "id": "R1",
+       "text": "Merchant provides supporting info showing shipment is within policy window and will monitor delivery, addressing buyer claims of non‑receipt and request for refund.",
+       "kind": "inference",
+       "evidence_ids": [
+        "shop.shipment.shipped_at",
+        "shop.shipment.carrier",
+        "shop.shipment.tracking",
+        "shop.policy.shipping",
+        "pp.order.tracking"
+       ],
+       "responds_to": [
+        "B1.1",
+        "W1",
+        "W2"
+       ]
+      }
+     ],
+     "fault": null,
+     "needs_fact": null
+    },
+    "validation": {
+     "ok": true,
+     "errors": [],
+     "warnings": [],
+     "dropped_sentences": [],
+     "message_text": "Hello, thank you for your patience. The item was shipped on 2026-11-05 via India Post (tracking EE264875961IN) and our policy allows 7–21 days for international delivery, so it is still within the expected timeframe. We will continue to monitor the shipment and can provide the tracking details as proof of shipment. Given the delivery window has not yet elapsed, we kindly ask for additional time before a refund is processed.",
+     "dropped_rationale": [],
+     "kept_sentences": [
+      {
+       "text": "Hello, thank you for your patience.",
+       "fact_ids": [],
+       "courtesy": true
+      },
+      {
+       "text": "The item was shipped on 2026-11-05 via India Post (tracking EE264875961IN) and our policy allows 7–21 days for international delivery, so it is still within the expected timeframe.",
+       "fact_ids": [
+        "shop.shipment.shipped_at",
+        "shop.shipment.carrier",
+        "shop.shipment.tracking",
+        "shop.policy.shipping"
+       ],
+       "courtesy": false
+      },
+      {
+       "text": "We will continue to monitor the shipment and can provide the tracking details as proof of shipment.",
+       "fact_ids": [
+        "pp.order.tracking",
+        "shop.shipment.carrier",
+        "shop.shipment.shipped_at"
+       ],
+       "courtesy": false
+      },
+      {
+       "text": "Given the delivery window has not yet elapsed, we kindly ask for additional time before a refund is processed.",
+       "fact_ids": [
+        "shop.policy.shipping",
+        "shop.shipment.shipped_at"
+       ],
+       "courtesy": false
+      }
+     ]
+    }
+   },
+   "llm": {
+    "provider": "api.groq.com",
+    "model": "openai/gpt-oss-120b",
+    "ms": 29631,
+    "prompt_tokens": 2658,
+    "completion_tokens": 1173,
+    "attempts": 2
+   }
+  },
+  {
+   "step": "validate",
+   "status": "ok",
+   "ms": 12,
+   "data": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "dropped_sentences": [],
+    "message_text": "Hello, we have reviewed the dispute (pp.dispute.id). The item was shipped on 2026-11-05 via India Post with tracking EE264875961IN (shop.shipment.shipped_at, shop.shipment.carrier, pp.order.tracking). Our shipping policy allows 7–21 days for international delivery, and only five days have passed, so the shipment is still within the expected timeframe (shop.policy.shipping, pp.capture.time, shop.shipment.shipped_at). We are providing the tracking information as proof of shipment (pp.order.tracking, shop.shipment.carrier, shop.shipment.shipped_at).",
+    "dropped_rationale": [],
+    "kept_sentences": [
+     {
+      "text": "Hello, we have reviewed the dispute (pp.dispute.id).",
+      "fact_ids": [
+       "pp.dispute.id"
+      ],
+      "courtesy": false
+     },
+     {
+      "text": "The item was shipped on 2026-11-05 via India Post with tracking EE264875961IN (shop.shipment.shipped_at, shop.shipment.carrier, pp.order.tracking).",
+      "fact_ids": [
+       "shop.shipment.shipped_at",
+       "shop.shipment.carrier",
+       "pp.order.tracking"
+      ],
+      "courtesy": false
+     },
+     {
+      "text": "Our shipping policy allows 7–21 days for international delivery, and only five days have passed, so the shipment is still within the expected timeframe (shop.policy.shipping, pp.capture.time, shop.shipment.shipped_at).",
+      "fact_ids": [
+       "shop.policy.shipping",
+       "pp.capture.time",
+       "shop.shipment.shipped_at"
+      ],
+      "courtesy": false
+     },
+     {
+      "text": "We are providing the tracking information as proof of shipment (pp.order.tracking, shop.shipment.carrier, shop.shipment.shipped_at).",
+      "fact_ids": [
+       "pp.order.tracking",
+       "shop.shipment.carrier",
+       "shop.shipment.shipped_at"
+      ],
+      "courtesy": false
+     }
+    ]
+   },
+   "llm": null
+  }
+ ],
+ "verdict": {
+  "action": "provide_supporting_info",
+  "type": null,
+  "amount": null,
+  "evidence": [],
+  "message": [
+   {
+    "text": "Hello, we have reviewed the dispute (pp.dispute.id).",
+    "fact_ids": [
+     "pp.dispute.id"
+    ],
+    "courtesy": true
+   },
+   {
+    "text": "The item was shipped on 2026-11-05 via India Post with tracking EE264875961IN (shop.shipment.shipped_at, shop.shipment.carrier, pp.order.tracking).",
+    "fact_ids": [
+     "shop.shipment.shipped_at",
+     "shop.shipment.carrier",
+     "pp.order.tracking"
+    ],
+    "courtesy": false
+   },
+   {
+    "text": "Our shipping policy allows 7–21 days for international delivery, and only five days have passed, so the shipment is still within the expected timeframe (shop.policy.shipping, pp.capture.time, shop.shipment.shipped_at).",
+    "fact_ids": [
+     "shop.policy.shipping",
+     "pp.capture.time",
+     "shop.shipment.shipped_at"
+    ],
+    "courtesy": false
+   },
+   {
+    "text": "We are providing the tracking information as proof of shipment (pp.order.tracking, shop.shipment.carrier, shop.shipment.shipped_at).",
+    "fact_ids": [
+     "pp.order.tracking",
+     "shop.shipment.carrier",
+     "shop.shipment.shipped_at"
+    ],
+    "courtesy": false
+   }
+  ],
+  "rationale": [
+   {
+    "id": "R1",
+    "text": "Shipment was dispatched on 2026-11-05 via India Post with tracking EE264875961IN, satisfying delivery documentation.",
+    "kind": "inference",
+    "evidence_ids": [
+     "shop.shipment.shipped_at",
+     "shop.shipment.carrier",
+     "pp.order.tracking"
+    ],
+    "responds_to": [
+     "B1.2"
+    ]
+   },
+   {
+    "id": "R2",
+    "text": "Delivery window is 7–21 days and only five days have elapsed, so no breach has occurred.",
+    "kind": "inference",
+    "evidence_ids": [
+     "shop.policy.shipping",
+     "pp.capture.time",
+     "shop.shipment.shipped_at"
+    ],
+    "responds_to": [
+     "B1.1"
+    ]
+   }
+  ],
+  "fault": null,
+  "needs_fact": null
+ },
+ "validation": {
+  "ok": true,
+  "errors": [],
+  "warnings": [],
+  "dropped_sentences": [],
+  "message_text": "Hello, we have reviewed the dispute (pp.dispute.id). The item was shipped on 2026-11-05 via India Post with tracking EE264875961IN (shop.shipment.shipped_at, shop.shipment.carrier, pp.order.tracking). Our shipping policy allows 7–21 days for international delivery, and only five days have passed, so the shipment is still within the expected timeframe (shop.policy.shipping, pp.capture.time, shop.shipment.shipped_at). We are providing the tracking information as proof of shipment (pp.order.tracking, shop.shipment.carrier, shop.shipment.shipped_at).",
+  "dropped_rationale": [],
+  "kept_sentences": [
+   {
+    "text": "Hello, we have reviewed the dispute (pp.dispute.id).",
+    "fact_ids": [
+     "pp.dispute.id"
+    ],
+    "courtesy": false
+   },
+   {
+    "text": "The item was shipped on 2026-11-05 via India Post with tracking EE264875961IN (shop.shipment.shipped_at, shop.shipment.carrier, pp.order.tracking).",
+    "fact_ids": [
+     "shop.shipment.shipped_at",
+     "shop.shipment.carrier",
+     "pp.order.tracking"
+    ],
+    "courtesy": false
+   },
+   {
+    "text": "Our shipping policy allows 7–21 days for international delivery, and only five days have passed, so the shipment is still within the expected timeframe (shop.policy.shipping, pp.capture.time, shop.shipment.shipped_at).",
+    "fact_ids": [
+     "shop.policy.shipping",
+     "pp.capture.time",
+     "shop.shipment.shipped_at"
+    ],
+    "courtesy": false
+   },
+   {
+    "text": "We are providing the tracking information as proof of shipment (pp.order.tracking, shop.shipment.carrier, shop.shipment.shipped_at).",
+    "fact_ids": [
+     "pp.order.tracking",
+     "shop.shipment.carrier",
+     "shop.shipment.shipped_at"
+    ],
+    "courtesy": false
+   }
+  ]
+ },
+ "outcome": {
+  "agreed": true,
+  "differences": [],
+  "second": null,
+  "deadlock": null
+ },
+ "facts_key": "UNDER_REVIEW|CHARGEBACK|accept_claim,provide_supporting_info",
+ "envelope": null,
+ "created_at": "2026-11-10T09:27:52Z"
+}

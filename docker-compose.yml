@@ -1,0 +1,8 @@
+services:
+  both-sides:
+    build: .
+    env_file: .env  # for a llama-server on the host, set LLM_BASE_URL=http://host.docker.internal:8080/v1 there
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/backend/data

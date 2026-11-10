@@ -1,0 +1,182 @@
+{
+ "_synthetic": "bench case UNAUTH-2: only reason, stage, links, allowed_response_options, shop rows and buyer_text differ from the real masked dispute in backend/tests/fixtures/real_inr_claim.json",
+ "dispute": {
+  "dispute_id": "PP-R-SYN-UNAUTH-2",
+  "create_time": "2026-11-10T08:00:00.969Z",
+  "update_time": "2026-11-10T08:00:00.738Z",
+  "disputed_transactions": [
+   {
+    "buyer_transaction_id": "BUY-UNAUTH-2",
+    "seller_transaction_id": "CAP-UNAUTH-2",
+    "create_time": "2026-11-02T11:00:00.000Z",
+    "transaction_status": "HELD",
+    "gross_amount": {
+     "currency_code": "USD",
+     "value": "12.00"
+    },
+    "custom": "np1|RP-PATTERN|-|seed|",
+    "buyer": {
+     "email": "s•••@•••",
+     "payer_id": "•••",
+     "name": "J."
+    },
+    "seller": {
+     "email": "s•••@•••",
+     "merchant_id": "•••",
+     "name": "T."
+    },
+    "items": [
+     {
+      "item_id": "RP-PATTERN",
+      "item_name": "Block-print pattern pack (PDF)",
+      "item_quantity": "1",
+      "reason": "UNAUTHORISED",
+      "item_type": "DIGITAL"
+     }
+    ],
+    "seller_protection_eligible": false
+   }
+  ],
+  "reason": "UNAUTHORISED",
+  "status": "UNDER_REVIEW",
+  "dispute_amount": {
+   "currency_code": "USD",
+   "value": "12.00"
+  },
+  "dispute_state": "UNDER_PAYPAL_REVIEW",
+  "fund_movements": [
+   {
+    "party": "SELLER",
+    "amount": {
+     "currency_code": "USD",
+     "value": "11.34"
+    },
+    "initiated_time": "2026-11-10T08:00:00.000Z",
+    "type": "DEBIT",
+    "reason": "HOLD_PLACED"
+   }
+  ],
+  "dispute_life_cycle_stage": "CHARGEBACK",
+  "dispute_channel": "INTERNAL",
+  "extensions": {
+   "merchant_contacted": false,
+   "buyer_contacted_time": "2026-11-10T08:00:00.174Z"
+  },
+  "evidences": [
+   {
+    "evidence_type": "CREATE",
+    "notes": "I did not make this $12 purchase. I do not know anything about a pattern pack. Please reverse the charge.",
+    "source": "SUBMITTED_BY_BUYER",
+    "date": "2026-11-10T08:00:00.969Z",
+    "dispute_life_cycle_stage": "INQUIRY"
+   }
+  ],
+  "offer": {
+   "buyer_requested_amount": {
+    "currency_code": "USD",
+    "value": "12.00"
+   }
+  },
+  "refund_details": {
+   "allowed_refund_amount": {
+    "currency_code": "USD",
+    "value": "12.00"
+   }
+  },
+  "links": [
+   {
+    "href": "https://api-m.sandbox.paypal.com/v1/customer/disputes/PP-R-SYN-UNAUTH-2",
+    "rel": "self",
+    "method": "GET",
+    "encType": "application/json"
+   },
+   {
+    "href": "https://api-m.sandbox.paypal.com/v1/customer/disputes/PP-R-SYN-UNAUTH-2/provide-supporting-info",
+    "rel": "provide_supporting_info",
+    "method": "POST",
+    "encType": "application/json"
+   },
+   {
+    "href": "https://api-m.sandbox.paypal.com/v1/customer/disputes/PP-R-SYN-UNAUTH-2/accept-claim",
+    "rel": "accept_claim",
+    "method": "POST",
+    "encType": "application/json"
+   }
+  ],
+  "allowed_response_options": {
+   "accept_claim": {
+    "accept_claim_types": [
+     "REFUND"
+    ]
+   }
+  }
+ },
+ "capture": {
+  "id": "CAP-UNAUTH-2",
+  "amount": {
+   "currency_code": "USD",
+   "value": "12.00"
+  },
+  "status": "COMPLETED",
+  "create_time": "2026-11-02T11:00:00Z",
+  "seller_protection": {
+   "status": "NOT_ELIGIBLE"
+  },
+  "supplementary_data": {
+   "related_ids": {
+    "order_id": "ORD-UNAUTH-2"
+   }
+  }
+ },
+ "order": {
+  "id": "ORD-UNAUTH-2",
+  "purchase_units": [
+   {
+    "custom_id": "np1|RP-PATTERN|-|seed|",
+    "items": [
+     {
+      "name": "Block-print pattern pack (PDF)",
+      "quantity": "1"
+     }
+    ]
+   }
+  ]
+ },
+ "refunds": [],
+ "shop": {
+  "product": {
+   "sku": "RP-PATTERN",
+   "name": "Block-print pattern pack (PDF)",
+   "category": "pattern",
+   "kind": "digital",
+   "color": null,
+   "price_cents": 1200,
+   "sizes": "[]",
+   "description": "Pattern pack of repeat motifs for carving your own printing blocks, emailed as a download link after purchase."
+  },
+  "order": {
+   "id": "ORD-UNAUTH-2",
+   "status": "captured",
+   "capture_id": "CAP-UNAUTH-2",
+   "sku": "RP-PATTERN",
+   "size": null,
+   "amount_cents": 1200,
+   "via": "seed",
+   "mandate_id": null,
+   "dispute_id": "PP-R-SYN-UNAUTH-2",
+   "created_at": "2026-11-02T11:00:00Z"
+  },
+  "shipment": null,
+  "refunds": [],
+  "mandate": null,
+  "notes": []
+ },
+ "derived": {},
+ "buyer_text": "I did not make this $12 purchase. I do not know anything about a pattern pack. Please reverse the charge.",
+ "receipts": {},
+ "errors": [],
+ "meta": {
+  "source": "synthetic",
+  "now": "2026-11-10T09:00:00Z"
+ }
+}

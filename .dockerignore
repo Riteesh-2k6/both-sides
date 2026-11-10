@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+**/.venv
+**/data
+**/node_modules
+**/__pycache__
+**/.pytest_cache
+.git
+.claude
+TODO-riteesh.md
+*.log

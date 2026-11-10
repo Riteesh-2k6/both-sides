@@ -1,0 +1,223 @@
+{
+ "_synthetic": "bench case INR-2: only reason, stage, links, allowed_response_options, shop rows and buyer_text differ from the real masked dispute in backend/tests/fixtures/real_inr_claim.json",
+ "dispute": {
+  "dispute_id": "PP-R-SYN-INR-2",
+  "create_time": "2026-11-10T07:00:00.969Z",
+  "update_time": "2026-11-10T07:00:00.738Z",
+  "disputed_transactions": [
+   {
+    "buyer_transaction_id": "BUY-INR-2",
+    "seller_transaction_id": "CAP-INR-2",
+    "create_time": "2026-11-03T11:00:00.000Z",
+    "transaction_status": "HELD",
+    "gross_amount": {
+     "currency_code": "USD",
+     "value": "38.00"
+    },
+    "custom": "np1|RP-SCARF-IND|-|seed|",
+    "buyer": {
+     "email": "s•••@•••",
+     "payer_id": "•••",
+     "name": "J."
+    },
+    "seller": {
+     "email": "s•••@•••",
+     "merchant_id": "•••",
+     "name": "T."
+    },
+    "items": [
+     {
+      "item_id": "RP-SCARF-IND",
+      "item_name": "Indigo dabu block-print scarf",
+      "item_quantity": "1",
+      "reason": "MERCHANDISE_OR_SERVICE_NOT_RECEIVED",
+      "item_type": "PRODUCT"
+     }
+    ],
+    "seller_protection_eligible": true,
+    "seller_protection_type": "EXPANDED_SELLER_PROTECTION"
+   }
+  ],
+  "reason": "MERCHANDISE_OR_SERVICE_NOT_RECEIVED",
+  "status": "WAITING_FOR_SELLER_RESPONSE",
+  "dispute_amount": {
+   "currency_code": "USD",
+   "value": "38.00"
+  },
+  "dispute_state": "OPEN_INQUIRIES",
+  "dispute_life_cycle_stage": "INQUIRY",
+  "dispute_channel": "INTERNAL",
+  "extensions": {
+   "merchant_contacted": false,
+   "buyer_contacted_time": "2026-11-10T07:00:00.174Z"
+  },
+  "evidences": [
+   {
+    "evidence_type": "CREATE",
+    "notes": "I ordered the indigo scarf on November 3rd. The tracking has not moved for five days since it left India. I am worried it is lost and I would like a refund.",
+    "source": "SUBMITTED_BY_BUYER",
+    "date": "2026-11-10T07:00:00.969Z",
+    "dispute_life_cycle_stage": "INQUIRY"
+   }
+  ],
+  "offer": {
+   "buyer_requested_amount": {
+    "currency_code": "USD",
+    "value": "38.00"
+   }
+  },
+  "refund_details": {
+   "allowed_refund_amount": {
+    "currency_code": "USD",
+    "value": "38.00"
+   }
+  },
+  "links": [
+   {
+    "href": "https://api-m.sandbox.paypal.com/v1/customer/disputes/PP-R-SYN-INR-2",
+    "rel": "self",
+    "method": "GET",
+    "encType": "application/json"
+   },
+   {
+    "href": "https://api-m.sandbox.paypal.com/v1/customer/disputes/PP-R-SYN-INR-2/provide-evidence",
+    "rel": "provide_evidence",
+    "method": "POST",
+    "encType": "application/json"
+   },
+   {
+    "href": "https://api-m.sandbox.paypal.com/v1/customer/disputes/PP-R-SYN-INR-2/make-offer",
+    "rel": "make_offer",
+    "method": "POST",
+    "encType": "application/json"
+   },
+   {
+    "href": "https://api-m.sandbox.paypal.com/v1/customer/disputes/PP-R-SYN-INR-2/accept-claim",
+    "rel": "accept_claim",
+    "method": "POST",
+    "encType": "application/json"
+   },
+   {
+    "href": "https://api-m.sandbox.paypal.com/v1/customer/disputes/PP-R-SYN-INR-2/send-message",
+    "rel": "send_message",
+    "method": "POST",
+    "encType": "application/json"
+   }
+  ],
+  "seller_response_due_date": "2026-11-20T07:00:00.000Z",
+  "allowed_response_options": {
+   "make_offer": {
+    "offer_types": [
+     "REFUND",
+     "REFUND_WITH_RETURN",
+     "REFUND_WITH_REPLACEMENT"
+    ]
+   },
+   "accept_claim": {
+    "accept_claim_types": [
+     "REFUND",
+     "PARTIAL_REFUND"
+    ]
+   }
+  }
+ },
+ "capture": {
+  "id": "CAP-INR-2",
+  "amount": {
+   "currency_code": "USD",
+   "value": "38.00"
+  },
+  "status": "COMPLETED",
+  "create_time": "2026-11-03T11:00:00Z",
+  "seller_protection": {
+   "status": "ELIGIBLE"
+  },
+  "supplementary_data": {
+   "related_ids": {
+    "order_id": "ORD-INR-2"
+   }
+  }
+ },
+ "order": {
+  "id": "ORD-INR-2",
+  "purchase_units": [
+   {
+    "custom_id": "np1|RP-SCARF-IND|-|seed|",
+    "items": [
+     {
+      "name": "Indigo dabu block-print scarf",
+      "quantity": "1"
+     }
+    ],
+    "shipping": {
+     "name": {
+      "full_name": "S."
+     },
+     "address": {
+      "address_line_1": "•••",
+      "admin_area_2": "Austin",
+      "admin_area_1": "TX",
+      "postal_code": "73301",
+      "country_code": "US"
+     },
+     "trackers": [
+      {
+       "id": "CAP-INR-2-EE000000102IN",
+       "tracking_number": "EE000000102IN",
+       "carrier": "INDIA_POST"
+      }
+     ]
+    }
+   }
+  ]
+ },
+ "refunds": [],
+ "shop": {
+  "product": {
+   "sku": "RP-SCARF-IND",
+   "name": "Indigo dabu block-print scarf",
+   "category": "scarf",
+   "kind": "physical",
+   "color": "indigo",
+   "price_cents": 3800,
+   "sizes": "[]",
+   "description": "Soft cotton scarf block-printed by hand with the dabu mud-resist technique. Natural dye: shade varies by batch and can look darker than in photos."
+  },
+  "order": {
+   "id": "ORD-INR-2",
+   "status": "captured",
+   "capture_id": "CAP-INR-2",
+   "sku": "RP-SCARF-IND",
+   "size": null,
+   "amount_cents": 3800,
+   "via": "seed",
+   "mandate_id": null,
+   "dispute_id": "PP-R-SYN-INR-2",
+   "created_at": "2026-11-03T11:00:00Z"
+  },
+  "shipment": {
+   "order_id": "ORD-INR-2",
+   "carrier": "INDIA_POST",
+   "tracking": "EE000000102IN",
+   "shipped_at": "2026-11-05T10:00:00Z",
+   "shipped_to_key": "k-ok",
+   "delivered_at": null,
+   "signature": 0,
+   "size_shipped": null,
+   "return_delivered_at": null
+  },
+  "refunds": [],
+  "mandate": null,
+  "notes": []
+ },
+ "derived": {
+  "address_match": "yes"
+ },
+ "buyer_text": "I ordered the indigo scarf on November 3rd. The tracking has not moved for five days since it left India. I am worried it is lost and I would like a refund.",
+ "receipts": {},
+ "errors": [],
+ "meta": {
+  "source": "synthetic",
+  "now": "2026-11-10T09:00:00Z"
+ }
+}

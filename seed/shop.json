@@ -1,0 +1,58 @@
+{
+ "products": [
+  {
+   "sku": "RP-SCARF-IND",
+   "name": "Indigo dabu block-print scarf",
+   "category": "scarf",
+   "kind": "physical",
+   "color": "indigo",
+   "price_cents": 3800,
+   "sizes": "[]",
+   "description": "Soft cotton scarf block-printed by hand with the dabu mud-resist technique. Natural dye: shade varies by batch and can look darker than in photos."
+  },
+  {
+   "sku": "RP-SCARF-RED",
+   "name": "Madder-red bagru scarf",
+   "category": "scarf",
+   "kind": "physical",
+   "color": "red",
+   "price_cents": 3800,
+   "sizes": "[]",
+   "description": "Cotton scarf hand block-printed in Bagru with madder-root dye. Natural dye: shade varies by batch and can look darker than in photos."
+  },
+  {
+   "sku": "RP-QUILT",
+   "name": "Hand block-printed cotton quilt",
+   "category": "quilt",
+   "kind": "physical",
+   "color": "indigo",
+   "price_cents": 14000,
+   "sizes": "[\"Single\", \"Queen\", \"King\"]",
+   "description": "Hand block-printed cotton quilt in natural indigo dye; shade varies by batch and can look darker than in photos. Sizes: Single 60x90 in, Queen 90x108 in, King 108x108 in."
+  },
+  {
+   "sku": "RP-CUSHION",
+   "name": "Kantha-stitch cushion covers (set of 2)",
+   "category": "cushion",
+   "kind": "physical",
+   "color": "multi",
+   "price_cents": 2400,
+   "sizes": "[\"16 in\", \"18 in\"]",
+   "description": "Set of 2 kantha-stitched cushion covers in mixed block-printed prints. Natural dye: shade varies by batch and can look darker than in photos."
+  },
+  {
+   "sku": "RP-PATTERN",
+   "name": "Block-print pattern pack (PDF)",
+   "category": "pattern",
+   "kind": "digital",
+   "color": null,
+   "price_cents": 1200,
+   "sizes": "[]",
+   "description": "Pattern pack of repeat motifs for carving your own printing blocks, emailed as a download link after purchase."
+  }
+ ],
+ "orders": [],
+ "shipments": [],
+ "refunds": [],
+ "mandates": []
+}

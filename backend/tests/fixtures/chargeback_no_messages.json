@@ -1,0 +1,153 @@
+{
+ "_handwritten": true,
+ "dispute": {
+  "dispute_id": "PP-D-2001",
+  "reason": "UNAUTHORISED",
+  "status": "WAITING_FOR_SELLER_RESPONSE",
+  "dispute_life_cycle_stage": "CHARGEBACK",
+  "dispute_amount": {
+   "currency_code": "USD",
+   "value": "140.00"
+  },
+  "create_time": "2026-11-02T10:00:00.000Z",
+  "seller_response_due_date": "2026-11-12T10:00:00.000Z",
+  "disputed_transactions": [
+   {
+    "seller_transaction_id": "CAP2",
+    "buyer": {
+     "name": "S."
+    },
+    "seller": {
+     "name": "N."
+    }
+   }
+  ],
+  "messages": [],
+  "evidences": [],
+  "offer": {},
+  "links": [
+   {
+    "href": "https://api.sandbox.paypal.com/v1/customer/disputes/PP-D-2001",
+    "rel": "self",
+    "method": "GET"
+   },
+   {
+    "href": "https://api.sandbox.paypal.com/v1/customer/disputes/PP-D-2001/provide-evidence",
+    "rel": "provide-evidence",
+    "method": "POST"
+   },
+   {
+    "href": "https://api.sandbox.paypal.com/v1/customer/disputes/PP-D-2001/accept-claim",
+    "rel": "accept-claim",
+    "method": "POST"
+   }
+  ],
+  "allowed_response_options": {
+   "accept_claim": {
+    "accept_claim_types": [
+     "REFUND"
+    ]
+   }
+  },
+  "dispute_channel": "EXTERNAL"
+ },
+ "capture": {
+  "id": "CAP2",
+  "amount": {
+   "currency_code": "USD",
+   "value": "140.00"
+  },
+  "status": "COMPLETED",
+  "create_time": "2026-10-28T09:00:00Z",
+  "seller_protection": {
+   "status": "ELIGIBLE"
+  },
+  "supplementary_data": {
+   "related_ids": {
+    "order_id": "ORD2"
+   }
+  }
+ },
+ "order": {
+  "id": "ORD2",
+  "purchase_units": [
+   {
+    "custom_id": "np1|RP-QUILT|Queen|seed|",
+    "items": [
+     {
+      "name": "Hand block-printed cotton quilt (size Queen)",
+      "quantity": "1"
+     }
+    ],
+    "shipping": {
+     "name": {
+      "full_name": "S. R."
+     },
+     "address": {
+      "address_line_1": "•••",
+      "admin_area_2": "Austin",
+      "admin_area_1": "TX",
+      "postal_code": "73301",
+      "country_code": "US"
+     },
+     "trackers": [
+      {
+       "id": "CAP2-EE123456789IN",
+       "tracking_number": "EE123456789IN",
+       "carrier": "INDIA_POST"
+      }
+     ]
+    }
+   }
+  ]
+ },
+ "refunds": [],
+ "shop": {
+  "product": {
+   "sku": "RP-QUILT",
+   "name": "Hand block-printed cotton quilt",
+   "category": "quilt",
+   "kind": "physical",
+   "color": "indigo",
+   "price_cents": 14000,
+   "sizes": "[\"Single\", \"Queen\", \"King\"]",
+   "description": "Hand block-printed cotton quilt in natural indigo dye; shade varies by batch and can look darker than in photos. Sizes: Single 60x90 in, Queen 90x108 in, King 108x108 in."
+  },
+  "order": {
+   "id": "ORD2",
+   "status": "captured",
+   "capture_id": "CAP2",
+   "sku": "RP-QUILT",
+   "size": "Queen",
+   "amount_cents": 14000,
+   "via": "seed",
+   "mandate_id": null,
+   "dispute_id": "PP-D-2001",
+   "created_at": "2026-10-28T09:00:00Z"
+  },
+  "shipment": {
+   "order_id": "ORD2",
+   "carrier": "INDIA_POST",
+   "tracking": "EE123456789IN",
+   "shipped_at": "2026-10-29T09:00:00Z",
+   "shipped_to_key": "k1",
+   "delivered_at": "2026-11-01T15:00:00Z",
+   "signature": 0,
+   "size_shipped": "Queen",
+   "return_delivered_at": null
+  },
+  "refunds": [],
+  "mandate": null,
+  "notes": []
+ },
+ "derived": {
+  "address_match": "yes"
+ },
+ "buyer_text": "",
+ "receipts": {},
+ "errors": [],
+ "meta": {
+  "source": "sandbox-ui",
+  "now": "2026-11-05T10:00:00Z"
+ }
+}

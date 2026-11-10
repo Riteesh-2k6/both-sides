@@ -1,0 +1,160 @@
+{
+ "_handwritten": true,
+ "run_status": "done",
+ "steps": [],
+ "llm_outputs": {
+  "quarantine": [
+   {
+    "stated_reason": "The parcel has not arrived",
+    "requested_outcome": "full_refund",
+    "alleged": [
+     {
+      "id": "A1",
+      "text": "The package never arrived"
+     }
+    ]
+   }
+  ],
+  "buyer_r1": [
+   {
+    "assessments": [
+     {
+      "alleged_id": "A1",
+      "status": "supported",
+      "evidence_ids": [
+       "shop.shipment.delivered_at"
+      ],
+      "note": "The shop tracking shows no delivery."
+     }
+    ],
+    "why_filed": [
+     {
+      "id": "x",
+      "text": "The buyer is waiting for a parcel that has not arrived.",
+      "kind": "fact",
+      "evidence_ids": [
+       "shop.shipment.delivered_at"
+      ],
+      "responds_to": []
+     }
+    ],
+    "claims": [
+     {
+      "id": "x",
+      "text": "The shop has no delivery record for this order.",
+      "kind": "fact",
+      "evidence_ids": [
+       "shop.shipment.delivered_at"
+      ],
+      "responds_to": []
+     }
+    ],
+    "proposal": {
+     "action": "make_offer",
+     "type": "REFUND",
+     "amount": 18.0,
+     "why": "The parcel has not arrived."
+    },
+    "deciding_fact": "Whether tracking shows a delivery scan."
+   }
+  ],
+  "merchant_r1": [
+   {
+    "claims": [
+     {
+      "id": "x",
+      "text": "A full refund of the item price is cheaper than contesting.",
+      "kind": "inference",
+      "evidence_ids": [
+       "shop.product.price"
+      ],
+      "responds_to": [
+       "B1.1"
+      ]
+     }
+    ],
+    "proposal": {
+     "action": "make_offer",
+     "type": "REFUND",
+     "amount": 18.0,
+     "why": "The parcel has not arrived."
+    },
+    "deciding_fact": "Whether tracking shows a delivery scan."
+   }
+  ],
+  "judge_a": [
+   {
+    "action": "make_offer",
+    "type": "REFUND",
+    "amount": 18.0,
+    "evidence": [],
+    "message": [
+     {
+      "text": "Thank you for your patience.",
+      "fact_ids": [],
+      "courtesy": true
+     },
+     {
+      "text": "We are offering a full refund because the parcel has not arrived.",
+      "fact_ids": [
+       "shop.shipment.delivered_at"
+      ],
+      "courtesy": false
+     }
+    ],
+    "rationale": [
+     {
+      "id": "x",
+      "text": "The shop has no delivery record.",
+      "kind": "fact",
+      "evidence_ids": [
+       "shop.shipment.delivered_at"
+      ],
+      "responds_to": [
+       "B1.1"
+      ]
+     }
+    ],
+    "fault": null,
+    "needs_fact": null
+   }
+  ],
+  "judge_b": [
+   {
+    "action": "make_offer",
+    "type": "REFUND",
+    "amount": 18.0,
+    "evidence": [],
+    "message": [
+     {
+      "text": "Thank you for your patience.",
+      "fact_ids": [],
+      "courtesy": true
+     },
+     {
+      "text": "We are offering a full refund because the parcel has not arrived.",
+      "fact_ids": [
+       "shop.shipment.delivered_at"
+      ],
+      "courtesy": false
+     }
+    ],
+    "rationale": [
+     {
+      "id": "x",
+      "text": "The shop has no delivery record.",
+      "kind": "fact",
+      "evidence_ids": [
+       "shop.shipment.delivered_at"
+      ],
+      "responds_to": [
+       "B1.1"
+      ]
+     }
+    ],
+    "fault": null,
+    "needs_fact": null
+   }
+  ]
+ }
+}

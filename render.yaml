@@ -1,0 +1,43 @@
+services:
+  - type: web
+    name: both-sides
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: HOSTED
+        value: "1"
+      - key: LLM_TEMPERATURE
+        value: "0"
+      - key: PAYPAL_CLIENT_ID
+        sync: false
+      - key: PAYPAL_CLIENT_SECRET
+        sync: false
+      - key: PAYPAL_MERCHANT_ID
+        sync: false
+      - key: LLM_BASE_URL
+        sync: false
+      - key: LLM_MODEL
+        sync: false
+      - key: LLM_API_KEY
+        sync: false
+      - key: LLM_JSON_MODE
+        sync: false
+      - key: FALLBACK_LLM_BASE_URL
+        sync: false
+      - key: FALLBACK_LLM_MODEL
+        sync: false
+      - key: FALLBACK_LLM_API_KEY
+        sync: false
+      - key: FALLBACK_LLM_JSON_MODE
+        sync: false
+      - key: APP_BASE_URL
+        sync: false
+      - key: HOSTED_ENVELOPE
+        sync: false
+      - key: CHARGEBACK_ENABLED
+        sync: false
+      - key: SHOPPER_TEST_CARD
+        sync: false
+      - key: CLIENT_IP_HEADER
+        sync: false

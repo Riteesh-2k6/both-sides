@@ -1,0 +1,183 @@
+{
+ "_handwritten": true,
+ "dispute": {
+  "dispute_id": "PP-D-3001",
+  "reason": "MERCHANDISE_OR_SERVICE_NOT_AS_DESCRIBED",
+  "status": "WAITING_FOR_SELLER_RESPONSE",
+  "dispute_life_cycle_stage": "INQUIRY",
+  "dispute_amount": {
+   "currency_code": "USD",
+   "value": "38.00"
+  },
+  "create_time": "2026-11-02T10:00:00.000Z",
+  "seller_response_due_date": "2026-11-12T10:00:00.000Z",
+  "disputed_transactions": [
+   {
+    "seller_transaction_id": "CAP3",
+    "buyer": {
+     "name": "S."
+    },
+    "seller": {
+     "name": "N."
+    }
+   }
+  ],
+  "messages": [
+   {
+    "posted_by": "BUYER",
+    "time_posted": "2026-11-02T10:05:00.000Z",
+    "content": "The scarf is red, I ordered an indigo one."
+   }
+  ],
+  "evidences": [],
+  "offer": {},
+  "links": [
+   {
+    "href": "https://api.sandbox.paypal.com/v1/customer/disputes/PP-D-3001",
+    "rel": "self",
+    "method": "GET"
+   },
+   {
+    "href": "https://api.sandbox.paypal.com/v1/customer/disputes/PP-D-3001/provide-evidence",
+    "rel": "provide-evidence",
+    "method": "POST"
+   },
+   {
+    "href": "https://api.sandbox.paypal.com/v1/customer/disputes/PP-D-3001/make-offer",
+    "rel": "make-offer",
+    "method": "POST"
+   },
+   {
+    "href": "https://api.sandbox.paypal.com/v1/customer/disputes/PP-D-3001/accept-claim",
+    "rel": "accept-claim",
+    "method": "POST"
+   },
+   {
+    "href": "https://api.sandbox.paypal.com/v1/customer/disputes/PP-D-3001/send-message",
+    "rel": "send-message",
+    "method": "POST"
+   }
+  ],
+  "allowed_response_options": {
+   "make_offer": {
+    "offer_types": [
+     "REFUND",
+     "REFUND_WITH_RETURN"
+    ]
+   },
+   "accept_claim": {
+    "accept_claim_types": [
+     "REFUND",
+     "PARTIAL_REFUND"
+    ]
+   }
+  }
+ },
+ "capture": {
+  "id": "CAP3",
+  "amount": {
+   "currency_code": "USD",
+   "value": "38.00"
+  },
+  "status": "COMPLETED",
+  "create_time": "2026-10-28T09:00:00Z",
+  "seller_protection": {
+   "status": "ELIGIBLE"
+  },
+  "supplementary_data": {
+   "related_ids": {
+    "order_id": "ORD3"
+   }
+  }
+ },
+ "order": {
+  "id": "ORD3",
+  "purchase_units": [
+   {
+    "custom_id": "np1|RP-SCARF-RED|-|seed|",
+    "items": [
+     {
+      "name": "Madder-red bagru scarf",
+      "quantity": "1"
+     }
+    ],
+    "shipping": {
+     "name": {
+      "full_name": "S. R."
+     },
+     "address": {
+      "address_line_1": "•••",
+      "admin_area_2": "Austin",
+      "admin_area_1": "TX",
+      "postal_code": "73301",
+      "country_code": "US"
+     },
+     "trackers": [
+      {
+       "id": "CAP3-EE123456789IN",
+       "tracking_number": "EE123456789IN",
+       "carrier": "INDIA_POST"
+      }
+     ]
+    }
+   }
+  ]
+ },
+ "refunds": [],
+ "shop": {
+  "product": {
+   "sku": "RP-SCARF-RED",
+   "name": "Madder-red bagru scarf",
+   "category": "scarf",
+   "kind": "physical",
+   "color": "red",
+   "price_cents": 3800,
+   "sizes": "[]",
+   "description": "Cotton scarf hand block-printed in Bagru with madder-root dye. Natural dye: shade varies by batch and can look darker than in photos."
+  },
+  "order": {
+   "id": "ORD3",
+   "status": "captured",
+   "capture_id": "CAP3",
+   "sku": "RP-SCARF-RED",
+   "size": null,
+   "amount_cents": 3800,
+   "via": "agent",
+   "mandate_id": 1,
+   "dispute_id": "PP-D-3001",
+   "created_at": "2026-10-28T09:00:00Z"
+  },
+  "shipment": {
+   "order_id": "ORD3",
+   "carrier": "INDIA_POST",
+   "tracking": "EE123456789IN",
+   "shipped_at": "2026-10-29T09:00:00Z",
+   "shipped_to_key": "k1",
+   "delivered_at": "2026-11-01T15:00:00Z",
+   "signature": 0,
+   "size_shipped": null,
+   "return_delivered_at": null
+  },
+  "refunds": [],
+  "mandate": {
+   "id": 1,
+   "text": "indigo cotton scarf under $50",
+   "constraints": "{\"category\": \"scarf\", \"color\": \"indigo\", \"max_price\": 50.0}",
+   "choice": "{\"reason\": \"a cotton scarf under budget\", \"size\": null, \"sku\": \"RP-SCARF-RED\"}",
+   "reason": "a cotton scarf under budget",
+   "hash": "abc123",
+   "created_at": "2026-10-28T08:59:00Z"
+  },
+  "notes": []
+ },
+ "derived": {
+  "address_match": "yes"
+ },
+ "buyer_text": "The scarf is red, I ordered an indigo one.",
+ "receipts": {},
+ "errors": [],
+ "meta": {
+  "source": "sandbox-ui",
+  "now": "2026-11-05T10:00:00Z"
+ }
+}

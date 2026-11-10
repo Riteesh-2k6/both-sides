@@ -1,0 +1,13 @@
+.env
+TODO-riteesh.md
+data/
+*.sqlite
+__pycache__/
+.venv/
+node_modules/
+frontend/dist/
+.pytest_cache/
+.env.*
+!.env.example
+.claude/
+*.log
