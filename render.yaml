@@ -40,4 +40,4 @@ services:
       - key: SHOPPER_TEST_CARD
         sync: false
       - key: CLIENT_IP_HEADER
-        sync: false
+        value: cf-connecting-ip  # D1: Render sits behind Cloudflare; the last X-Forwarded-For entry is Render's own proxy

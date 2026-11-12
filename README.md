@@ -8,7 +8,7 @@ Both Sides reads the dispute and the facts from PayPal and the shop's own record
 
 Built for the [PayPal AI Hackathon](https://paypalaihackathon.devpost.com) (Nov 2026). Everything runs against the free PayPal **sandbox**. The demo merchant is an **India** business account (the fictional block-print workshop *Rangsaaz Prints*, Jaipur) and the buyer is a **US** account.
 
-- **Demo:** _hosted URL (added at deploy)_
+- **Demo:** https://both-sides-8sui.onrender.com (free tier: the first load after a quiet spell takes about a minute while it wakes)
 - **Video:** _YouTube link (added at submission)_
 - **License:** MIT
 

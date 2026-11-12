@@ -80,6 +80,6 @@ So, at least on a small model, the hearing adds structure rather than accuracy: 
 ## Links (fill in)
 
 - Repo: https://github.com/Riteesh-2k6/both-sides
-- Demo: https://_render-url_
+- Demo: https://both-sides-8sui.onrender.com
 - Video: https://youtu.be/_id_
 - **Testing instructions (private field):** the US sandbox buyer login, and "Shared cases are dry-run; create your own case via Shop → buy as the sandbox buyer → open a dispute at sandbox.paypal.com".
