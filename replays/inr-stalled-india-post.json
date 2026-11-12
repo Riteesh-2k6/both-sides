@@ -1030,18 +1030,18 @@
      "errors": [],
      "warnings": [],
      "dropped_sentences": [],
-     "message_text": "Hello, we have reviewed the dispute (pp.dispute.id). The item was shipped on 2026-11-05 via India Post with tracking EE264875961IN (shop.shipment.shipped_at, shop.shipment.carrier, pp.order.tracking). Our shipping policy allows 7–21 days for international delivery, and only five days have passed, so the shipment is still within the expected timeframe (shop.policy.shipping, pp.capture.time, shop.shipment.shipped_at). We are providing the tracking information as proof of shipment (pp.order.tracking, shop.shipment.carrier, shop.shipment.shipped_at).",
+     "message_text": "Hello, we have reviewed the dispute. The item was shipped on 2026-11-05 via India Post with tracking EE264875961IN. Our shipping policy allows 7–21 days for international delivery, and only five days have passed, so the shipment is still within the expected timeframe. We are providing the tracking information as proof of shipment.",
      "dropped_rationale": [],
      "kept_sentences": [
       {
-       "text": "Hello, we have reviewed the dispute (pp.dispute.id).",
+       "text": "Hello, we have reviewed the dispute.",
        "fact_ids": [
         "pp.dispute.id"
        ],
        "courtesy": false
       },
       {
-       "text": "The item was shipped on 2026-11-05 via India Post with tracking EE264875961IN (shop.shipment.shipped_at, shop.shipment.carrier, pp.order.tracking).",
+       "text": "The item was shipped on 2026-11-05 via India Post with tracking EE264875961IN.",
        "fact_ids": [
         "shop.shipment.shipped_at",
         "shop.shipment.carrier",
@@ -1050,7 +1050,7 @@
        "courtesy": false
       },
       {
-       "text": "Our shipping policy allows 7–21 days for international delivery, and only five days have passed, so the shipment is still within the expected timeframe (shop.policy.shipping, pp.capture.time, shop.shipment.shipped_at).",
+       "text": "Our shipping policy allows 7–21 days for international delivery, and only five days have passed, so the shipment is still within the expected timeframe.",
        "fact_ids": [
         "shop.policy.shipping",
         "pp.capture.time",
@@ -1059,7 +1059,7 @@
        "courtesy": false
       },
       {
-       "text": "We are providing the tracking information as proof of shipment (pp.order.tracking, shop.shipment.carrier, shop.shipment.shipped_at).",
+       "text": "We are providing the tracking information as proof of shipment.",
        "fact_ids": [
         "pp.order.tracking",
         "shop.shipment.carrier",
@@ -1206,18 +1206,18 @@
     "errors": [],
     "warnings": [],
     "dropped_sentences": [],
-    "message_text": "Hello, we have reviewed the dispute (pp.dispute.id). The item was shipped on 2026-11-05 via India Post with tracking EE264875961IN (shop.shipment.shipped_at, shop.shipment.carrier, pp.order.tracking). Our shipping policy allows 7–21 days for international delivery, and only five days have passed, so the shipment is still within the expected timeframe (shop.policy.shipping, pp.capture.time, shop.shipment.shipped_at). We are providing the tracking information as proof of shipment (pp.order.tracking, shop.shipment.carrier, shop.shipment.shipped_at).",
+    "message_text": "Hello, we have reviewed the dispute. The item was shipped on 2026-11-05 via India Post with tracking EE264875961IN. Our shipping policy allows 7–21 days for international delivery, and only five days have passed, so the shipment is still within the expected timeframe. We are providing the tracking information as proof of shipment.",
     "dropped_rationale": [],
     "kept_sentences": [
      {
-      "text": "Hello, we have reviewed the dispute (pp.dispute.id).",
+      "text": "Hello, we have reviewed the dispute.",
       "fact_ids": [
        "pp.dispute.id"
       ],
       "courtesy": false
      },
      {
-      "text": "The item was shipped on 2026-11-05 via India Post with tracking EE264875961IN (shop.shipment.shipped_at, shop.shipment.carrier, pp.order.tracking).",
+      "text": "The item was shipped on 2026-11-05 via India Post with tracking EE264875961IN.",
       "fact_ids": [
        "shop.shipment.shipped_at",
        "shop.shipment.carrier",
@@ -1226,7 +1226,7 @@
       "courtesy": false
      },
      {
-      "text": "Our shipping policy allows 7–21 days for international delivery, and only five days have passed, so the shipment is still within the expected timeframe (shop.policy.shipping, pp.capture.time, shop.shipment.shipped_at).",
+      "text": "Our shipping policy allows 7–21 days for international delivery, and only five days have passed, so the shipment is still within the expected timeframe.",
       "fact_ids": [
        "shop.policy.shipping",
        "pp.capture.time",
@@ -1235,7 +1235,7 @@
       "courtesy": false
      },
      {
-      "text": "We are providing the tracking information as proof of shipment (pp.order.tracking, shop.shipment.carrier, shop.shipment.shipped_at).",
+      "text": "We are providing the tracking information as proof of shipment.",
       "fact_ids": [
        "pp.order.tracking",
        "shop.shipment.carrier",
@@ -1325,18 +1325,18 @@
   "errors": [],
   "warnings": [],
   "dropped_sentences": [],
-  "message_text": "Hello, we have reviewed the dispute (pp.dispute.id). The item was shipped on 2026-11-05 via India Post with tracking EE264875961IN (shop.shipment.shipped_at, shop.shipment.carrier, pp.order.tracking). Our shipping policy allows 7–21 days for international delivery, and only five days have passed, so the shipment is still within the expected timeframe (shop.policy.shipping, pp.capture.time, shop.shipment.shipped_at). We are providing the tracking information as proof of shipment (pp.order.tracking, shop.shipment.carrier, shop.shipment.shipped_at).",
+  "message_text": "Hello, we have reviewed the dispute. The item was shipped on 2026-11-05 via India Post with tracking EE264875961IN. Our shipping policy allows 7–21 days for international delivery, and only five days have passed, so the shipment is still within the expected timeframe. We are providing the tracking information as proof of shipment.",
   "dropped_rationale": [],
   "kept_sentences": [
    {
-    "text": "Hello, we have reviewed the dispute (pp.dispute.id).",
+    "text": "Hello, we have reviewed the dispute.",
     "fact_ids": [
      "pp.dispute.id"
     ],
     "courtesy": false
    },
    {
-    "text": "The item was shipped on 2026-11-05 via India Post with tracking EE264875961IN (shop.shipment.shipped_at, shop.shipment.carrier, pp.order.tracking).",
+    "text": "The item was shipped on 2026-11-05 via India Post with tracking EE264875961IN.",
     "fact_ids": [
      "shop.shipment.shipped_at",
      "shop.shipment.carrier",
@@ -1345,7 +1345,7 @@
     "courtesy": false
    },
    {
-    "text": "Our shipping policy allows 7–21 days for international delivery, and only five days have passed, so the shipment is still within the expected timeframe (shop.policy.shipping, pp.capture.time, shop.shipment.shipped_at).",
+    "text": "Our shipping policy allows 7–21 days for international delivery, and only five days have passed, so the shipment is still within the expected timeframe.",
     "fact_ids": [
      "shop.policy.shipping",
      "pp.capture.time",
@@ -1354,7 +1354,7 @@
     "courtesy": false
    },
    {
-    "text": "We are providing the tracking information as proof of shipment (pp.order.tracking, shop.shipment.carrier, shop.shipment.shipped_at).",
+    "text": "We are providing the tracking information as proof of shipment.",
     "fact_ids": [
      "pp.order.tracking",
      "shop.shipment.carrier",
