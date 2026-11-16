@@ -88,6 +88,10 @@ def test_outcome_flags_model_failures_apart_from_blocks():
     refused = RunResult("error", [{"step": "judge_a", "status": "error", "data": {"verdict": {}, "validation": {}}}], None, {"a": {}, "b": None}, None, {})
     o = bench.outcome_of(refused)
     assert o["unavailable"] is False and bench.blocked(o)
+    for why, infra in (("api.groq.com: HTTP 503", True), ("localhost: timeout", True), ("api.groq.com: network error", True),
+                       ("api.groq.com: invalid reply", False), ("api.groq.com: HTTP 400", False)):  # a reply that never parses is the model's own failure
+        o = bench.outcome_of(RunResult("error", [{"step": "baseline", "status": "error", "data": {"message": f"Model unavailable ({why})"}}], None, None, None, {}))
+        assert o["unavailable"] is infra and bench.blocked(o) is not infra, why
     sent = RunResult("done", [], {"action": "make_offer", "type": "REFUND", "amount": 20.0, "fault": None}, {}, {}, {})
     assert bench.outcome_of(sent)["amount"] == 20.0 and bench.outcome_of(sent)["unavailable"] is False
 
