@@ -35,7 +35,7 @@ export default function Bench() {
       <div className="page-head">
         <div>
           <h1>Bench</h1>
-          <p className="muted">Twelve scripted disputes with known good answers. Does the desk beat a single prompt, and does it stay put when the buyer sounds more convincing?</p>
+          <p className="muted">Scripted disputes with known good answers. Does the desk beat a single prompt, and does it stay put when the buyer sounds more convincing?</p>
         </div>
       </div>
       {q.error ? <ErrorBox error={q.error} onRetry={q.reload} /> : !b ? <Loading label="Loading bench results…" /> : !b.cases || !b.totals ? (
