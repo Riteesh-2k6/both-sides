@@ -107,7 +107,7 @@ def _steps(res):
     return {s["step"]: s for s in res.steps}
 
 
-def _case(case: dict, temperature, fee: float = 0.0) -> tuple[dict, list[int]]:
+def _case(case: dict, temperature, fee: float = 0.0) -> dict:
     snap = json.loads((config.BENCH_DIR / case["snapshot"]).read_text(encoding="utf-8"))
     flipped = copy.deepcopy(snap)
     flipped["buyer_text"] = case["flipped_text"]
@@ -131,15 +131,13 @@ def _case(case: dict, temperature, fee: float = 0.0) -> tuple[dict, list[int]]:
     def sd(r, step):
         v = ((_steps(r).get(step) or {}).get("data") or {}).get("validation") or {}
         return len(v.get("dropped_sentences", []))
-    ms = [s["llm"]["ms"] for r in runs.values() for s in r.steps if s.get("llm")]
-    entry = {"id": case["id"], "title": case["title"], "stage": case["stage"], "heldout": case["heldout"], "source": snap.get("meta", {}).get("source"), "expected": exp,
+    return {"id": case["id"], "title": case["title"], "stage": case["stage"], "heldout": case["heldout"], "source": snap.get("meta", {}).get("source"), "expected": exp,
              "side": side, "amount": amount,
              **outs, "always_accept": _control(control_accept, pre, exp, side, amount, fee), "always_contest": _control(control_contest, pre, exp, side, amount, fee),
              "desk_flip": is_flip(outs["desk"], outs["desk_flipped"]), "baseline_flip": is_flip(outs["baseline"], outs["baseline_flipped"]),
              "claims_checked": checked, "claims_dropped": dropped, "baseline_claims_checked": len(rat), "baseline_claims_dropped": base_dropped,
              "sentences_dropped": {"desk": sd(runs["desk"], "judge_a"), "baseline": sd(runs["baseline"], "baseline")},
              "traces": {k: {"run_status": r.status, "steps": r.steps, "llm_outputs": r.llm_outputs} for k, r in runs.items()}}
-    return entry, ms
 
 
 def _system(cs: list[dict], k: str) -> dict:
@@ -160,33 +158,53 @@ def _totals(cs: list[dict], fee: float = 0.0) -> dict | None:
             "systems": {k: _system(cs, k) for k in SYSTEMS}}
 
 
-def _models(cs: list[dict]) -> dict:
-    """Which model answered each call: a fallback model mid-run would mix two models in one result."""
-    return dict(collections.Counter(f"{s['llm']['provider']}/{s['llm']['model']}" for c in cs for t in c["traces"].values() for s in t["steps"] if s.get("llm")))
+def _llm_steps(cs: list[dict]) -> list[dict]:
+    return [s["llm"] for c in cs for t in c["traces"].values() for s in t["steps"] if s.get("llm")]
 
 
-def run_bench(case_ids=None, heldout=False, repeats=1, temperature=None, file="cases-v2.json") -> dict:
+class Stopped(Exception):
+    """The model couldn't answer (quota, outage): finished cases are saved in the progress file."""
+
+
+RUNS = ("desk", "baseline", "desk_flipped", "baseline_flipped")
+
+
+def run_bench(case_ids=None, heldout=False, repeats=1, temperature=None, file="cases-v2.json", progress=None) -> dict:
+    """progress: a path; each finished case is saved there, cases already in it are not run again, and the run stops
+    at the first case the model couldn't answer (raises Stopped). Kept only for the same case file, model and temperature."""
     doc = json.loads((config.BENCH_DIR / file).read_text(encoding="utf-8"))
     allc = doc["cases"] if isinstance(doc, dict) else doc  # the committed files wrap the list with header fields
     fee = float(doc.get("dispute_fee_usd", 0.0)) if isinstance(doc, dict) else 0.0
     chosen = [c for c in allc if c["id"] in case_ids] if case_ids else [c for c in allc if heldout or not c["heldout"]]
-    passes, ms = [], []
+    s = config.S
+    key = {"case_file": file, "model": s.LLM_MODEL, "temperature": s.LLM_TEMPERATURE if temperature is None else temperature}
+    done = {}
+    if progress and progress.exists():
+        p = json.loads(progress.read_text(encoding="utf-8"))
+        if {k: p.get(k) for k in key} == key:
+            done = {c["id"]: c for c in p["cases"]}
+    passes = []
     for _ in range(repeats):
         cs = []
         for c in chosen:
-            e, m = _case(c, temperature, fee)
+            e = done.get(c["id"]) or _case(c, temperature, fee)
+            if progress and any(e[k]["unavailable"] for k in RUNS):
+                raise Stopped(f"the model couldn't answer {c['id']}; {len(cs)} of {len(chosen)} cases are saved in {progress.name}")
             cs.append(e)
-            ms += m
+            if progress:
+                progress.write_text(json.dumps({**key, "cases": cs}, ensure_ascii=False), encoding="utf-8")
         passes.append(cs)
     first = passes[0]
 
     def summ(k):
         p = [sum(c[k]["match"] for c in cs) for cs in passes]
         return {"min": min(p), "median": statistics.median(p), "max": max(p)}
-    s = config.S
+    calls = _llm_steps([c for cs in passes for c in cs])
     return {"generated_at": config.iso(config.utcnow()), "provider": "fake" if llm.FAKE else (urlparse(s.LLM_BASE_URL).hostname or s.LLM_BASE_URL), "model": s.LLM_MODEL,
-            "temperature": s.LLM_TEMPERATURE if temperature is None else temperature, "repeats": repeats, "ms_per_call": round(sum(ms) / len(ms), 1) if ms else 0.0,
-            "case_file": file, "dispute_fee_usd": fee, "models_used": _models([c for cs in passes for c in cs]),
+            "temperature": key["temperature"], "repeats": repeats, "ms_per_call": round(sum(m["ms"] for m in calls) / len(calls), 1) if calls else 0.0,
+            "case_file": file, "dispute_fee_usd": fee,
+            # which model answered each call: a fallback model mid-run would mix two models in one result
+            "models_used": dict(collections.Counter(f"{m['provider']}/{m['model']}" for m in calls)),
             "cases": first, "totals": {"tuning": _totals([c for c in first if not c["heldout"]], fee), "heldout": _totals([c for c in first if c["heldout"]], fee)},
             "repeats_summary": {"desk": summ("desk"), "baseline": summ("baseline")} if repeats > 1 else None}
 
@@ -216,15 +234,30 @@ def main(argv=None):
     r.add_argument("--repeats", type=int, default=1)
     r.add_argument("--temperature", type=float, default=None)
     r.add_argument("--file", default="cases-v2.json", help="case file in bench/ (cases.json is the v1 set)")
+    r.add_argument("--resume", action="store_true", help="save each finished case and continue from them; stops (exit 3) when the model can't answer")
+    r.add_argument("--max-wait", type=float, default=None, metavar="SECONDS",
+                   help="wait out a rate limit (HTTP 429) for up to this long per call; Groq's free tier asks for minutes once its tokens-per-day cap is hit")
     a = ap.parse_args(argv)
     if a.cmd == "capture":
         return capture(a.dispute_id, a.case_id, a.source)
-    res = run_bench(a.cases.split(",") if a.cases else None, a.heldout, a.repeats, a.temperature, a.file)
+    if a.resume and a.repeats != 1:
+        ap.error("--resume runs one pass at a time")
+    if a.max_wait:
+        llm.SHORT_WAIT = llm.MAX_WAIT = a.max_wait
     out = config.BENCH_DIR / "results"
     out.mkdir(parents=True, exist_ok=True)
+    slug = config.S.LLM_MODEL.replace("/", "_")
+    progress = out / f"in-progress-{slug}.json" if a.resume else None
+    try:
+        res = run_bench(a.cases.split(",") if a.cases else None, a.heldout, a.repeats, a.temperature, a.file, progress)
+    except Stopped as e:
+        print(f"stopped: {e}. Run the same command again (with --resume) once the quota resets.")
+        raise SystemExit(3)
     text = json.dumps(res, indent=1, ensure_ascii=False) + "\n"
-    (out / f"{res['generated_at'][:10]}-{config.S.LLM_MODEL.replace('/', '_')}.json").write_text(text, encoding="utf-8")
+    (out / f"{res['generated_at'][:10]}-{slug}.json").write_text(text, encoding="utf-8")
     (out / "latest.json").write_text(text, encoding="utf-8")
+    if progress:
+        progress.unlink(missing_ok=True)
     for name in ("tuning", "heldout"):
         t = res["totals"][name]
         if not t:

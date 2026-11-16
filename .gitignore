@@ -11,3 +11,4 @@ frontend/dist/
 !.env.example
 .claude/
 *.log
+bench/results/in-progress-*.json
