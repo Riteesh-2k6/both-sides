@@ -89,6 +89,7 @@ def test_outcome_flags_model_failures_apart_from_blocks():
     o = bench.outcome_of(refused)
     assert o["unavailable"] is False and bench.blocked(o)
     for why, infra in (("api.groq.com: HTTP 503", True), ("localhost: timeout", True), ("api.groq.com: network error", True),
+                       ("api.groq.com: HTTP 401", True), ("api.groq.com: HTTP 404", True), ("no provider configured", True),  # a bad key or model name is not a verdict
                        ("api.groq.com: invalid reply", False), ("api.groq.com: HTTP 400", False)):  # a reply that never parses is the model's own failure
         o = bench.outcome_of(RunResult("error", [{"step": "baseline", "status": "error", "data": {"message": f"Model unavailable ({why})"}}], None, None, None, {}))
         assert o["unavailable"] is infra and bench.blocked(o) is not infra, why

@@ -20,12 +20,14 @@ def fault_top(fault) -> str | None:
     return best[0][0] if len(best) == 1 or best[0][1] > best[1][1] else None  # a tie is no answer
 
 
-INFRA = re.compile(r"^Model unavailable \((no provider configured|.*: (HTTP (429|5\d\d)|timeout|network error))\)$")
+MODEL_FAILED = re.compile(r": (invalid reply|HTTP 400)\)$")
 
 
 def _unavailable(res) -> bool:
-    """The provider failed (rate limit, outage, timeout): rerun later. A reply that never parsed (invalid reply, HTTP 400) is the model's own failure."""
-    return any(s["status"] == "error" and INFRA.match(str((s.get("data") or {}).get("message", ""))) for s in res.steps)
+    """The provider failed (rate limit, outage, timeout, bad key): rerun later. A reply that never parsed (invalid reply,
+    or Groq's HTTP 400 for a fumbled schema) is the model's own failure and counts as blocked."""
+    return any(s["status"] == "error" and (m := str((s.get("data") or {}).get("message", ""))).startswith("Model unavailable") and not MODEL_FAILED.search(m)
+               for s in res.steps)
 
 
 def outcome_of(res) -> dict:
