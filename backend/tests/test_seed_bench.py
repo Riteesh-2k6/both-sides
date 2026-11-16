@@ -170,7 +170,7 @@ def make_bench(tmp_path, monkeypatch):
         (b / "snapshots" / f"{cid}.json").write_text(json.dumps(s), encoding="utf-8")
         cases.append({"id": cid, "title": cid, "reason": s["dispute"]["reason"], "stage": s["dispute"]["dispute_life_cycle_stage"], "heldout": heldout, "snapshot": f"snapshots/{cid}.json",
                       "expected": {"any_of": [{"action": "provide_evidence"}], "never": ["accept_claim"]}, "flipped_text": "I am furious, it never came, I am absolutely certain.", "note": ""})
-    (b / "cases.json").write_text(json.dumps(cases), encoding="utf-8")
+    (b / "cases-v2.json").write_text(json.dumps(cases), encoding="utf-8")  # the default case file
     return b
 
 
@@ -188,14 +188,17 @@ def test_bench_run_results_shape_and_scoring(app_env, tmp_path, monkeypatch):
     c = res["cases"][0]
     assert set(c) >= {"id", "title", "stage", "heldout", "source", "expected", "desk", "baseline", "desk_flipped", "baseline_flipped", "always_accept", "always_contest",
                       "desk_flip", "baseline_flip", "claims_checked", "claims_dropped", "baseline_claims_checked", "baseline_claims_dropped", "sentences_dropped", "traces"}
-    assert set(c["desk"]) == {"action", "type", "valid", "deadlock", "match", "fault_top"} and c["desk"]["match"] is True and c["baseline"]["match"] is True
+    assert set(c["desk"]) == {"action", "type", "amount", "valid", "deadlock", "unavailable", "match", "action_match", "cost", "fault_top"} and c["desk"]["match"] is True and c["baseline"]["match"] is True
     assert c["always_accept"]["match"] is False and c["always_contest"]["match"] is True
     assert c["desk_flip"] is False and c["baseline_flip"] is False and c["sentences_dropped"] == {"desk": 0, "baseline": 0}
     assert c["claims_checked"] > 0 and c["claims_dropped"] == 0 and c["baseline_claims_checked"] == 0
     assert set(c["traces"]) == {"desk", "baseline", "desk_flipped", "baseline_flipped"} and set(c["traces"]["desk"]) == {"run_status", "steps", "llm_outputs"}
     assert len(c["traces"]["desk"]["llm_outputs"]["judge_a"]) == 1
     t = res["totals"]["tuning"]
-    assert t == {"n": 2, "desk": 2, "baseline": 2, "always_accept": 0, "always_contest": 2, "desk_flips": 0, "baseline_flips": 0, "claims_dropped": 0} and res["totals"]["heldout"] is None
+    assert {k: t[k] for k in ("n", "desk", "baseline", "always_accept", "always_contest", "desk_flips", "baseline_flips", "claims_dropped")} == \
+        {"n": 2, "desk": 2, "baseline": 2, "always_accept": 0, "always_contest": 2, "desk_flips": 0, "baseline_flips": 0, "claims_dropped": 0} and res["totals"]["heldout"] is None
+    assert t["sides"] == {"seller": 0, "buyer": 0} and t["systems"]["desk"]["cost_usd"] == 0 and c["side"] is None and c["desk"]["cost"] is None  # these cases have no side
+    assert list(res["models_used"]) == ["fake/fake"] and res["case_file"] == "cases-v2.json"
     assert res["model"] == "fake-model" and res["repeats"] == 1 and res["repeats_summary"] is None and "generated_at" in res
     assert set(res) >= {"provider", "temperature", "ms_per_call", "cases", "totals", "repeats_summary"}
     # the flipped run saw the flipped text in its quarantine prompt

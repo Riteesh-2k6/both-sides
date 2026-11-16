@@ -157,7 +157,7 @@ def test_bench_cli_runs_a_case_end_to_end_on_a_scripted_fake(tmp_path, monkeypat
     script = {"quarantine": [quarantine_out()], "buyer_r1": [turn_buyer()], "merchant_r1": [turn_merchant()], "judge_a": [v], "judge_b": [v.model_copy(deep=True)], "baseline": [v]}
     fk = fakes.fake_llm(script, repeat=True)
     monkeypatch.setattr(llm, "FAKE", fk)
-    bench.main(["run", "--cases", "INR-1"])
+    bench.main(["run", "--cases", "INR-1", "--file", "cases.json"])
     res = json.loads((b / "results" / "latest.json").read_text(encoding="utf-8"))
     assert (b / "results" / "latest.json").read_text(encoding="utf-8") == next(p for p in (b / "results").iterdir() if p.name.endswith("-scripted.json")).read_text(encoding="utf-8")
     c = res["cases"][0]
@@ -168,10 +168,10 @@ def test_bench_cli_runs_a_case_end_to_end_on_a_scripted_fake(tmp_path, monkeypat
     assert any("furious" in u for st, _, u in fk.calls if st == "quarantine")  # the flipped text was used for the flipped runs
     assert "tuning:" in capsys.readouterr().out
     # the default selection runs the 8 tuning cases and leaves the held-out ones out
-    bench.main(["run"])
+    bench.main(["run", "--file", "cases.json"])
     res = json.loads((b / "results" / "latest.json").read_text(encoding="utf-8"))
     assert [x["id"] for x in res["cases"]] == ["INR-1", "INR-2", "SNAD-1", "SNAD-3", "UNAUTH-1", "UNAUTH-2", "CNP-1", "AGENT-1"]
     unauth = {x["id"]: x for x in res["cases"]}["UNAUTH-1"]
-    assert unauth["stage"] == "CHARGEBACK" and unauth["always_accept"]["action"] == "accept_claim" and unauth["always_contest"]["action"] == "provide_evidence"
-    bench.main(["run", "--heldout"])
+    assert unauth["stage"] == "CHARGEBACK" and unauth["always_accept"]["action"] == "accept_claim" and unauth["always_contest"]["action"] == "provide_supporting_info"  # v1 sent evidence, which PayPal does not allow here
+    bench.main(["run", "--heldout", "--file", "cases.json"])
     assert len(json.loads((b / "results" / "latest.json").read_text(encoding="utf-8"))["cases"]) == 12
